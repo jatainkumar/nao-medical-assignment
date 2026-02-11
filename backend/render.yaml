@@ -8,6 +8,6 @@ services:
       - key: GROQ_API_KEY
         sync: false
       - key: FRONTEND_URL
-        sync: false
+        value: https://nao-medical-assignment.vercel.app
       - key: PYTHON_VERSION
         value: 3.11.0

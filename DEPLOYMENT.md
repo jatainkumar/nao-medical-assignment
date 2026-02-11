@@ -28,7 +28,7 @@ The project includes a `backend/render.yaml` blueprint file.
    | Variable | Value |
    |----------|-------|
    | `GROQ_API_KEY` | Your Groq API key |
-   | `FRONTEND_URL` | Your Vercel frontend URL (e.g. `https://your-app.vercel.app`) |
+   | `FRONTEND_URL` | `https://nao-medical-assignment.vercel.app` |
 
 6. Click **Apply** and wait for deployment
 
@@ -52,16 +52,16 @@ The project includes a `backend/render.yaml` blueprint file.
    | Key | Value |
    |-----|-------|
    | `GROQ_API_KEY` | Your Groq API key |
-   | `FRONTEND_URL` | `https://your-app.vercel.app` |
+   | `FRONTEND_URL` | `https://nao-medical-assignment.vercel.app` |
    | `PYTHON_VERSION` | `3.11.0` |
 
 6. Click **Create Web Service**
 
 ### After Deployment
 
-- Note your Render URL (e.g. `https://medibridge-api.onrender.com`)
-- Test: visit `https://medibridge-api.onrender.com/health` — should return `{"status": "healthy"}`
-- API docs available at `https://medibridge-api.onrender.com/docs`
+- Note your Render URL: `https://nao-medical-assignment.onrender.com`
+- Test: visit `https://nao-medical-assignment.onrender.com/health` — should return `{"status": "healthy"}`
+- API docs available at `https://nao-medical-assignment.onrender.com/docs`
 
 > ⚠️ **Render free tier** spins down after 15 minutes of inactivity. First request after spin-down takes ~30-60 seconds.
 
@@ -86,7 +86,7 @@ The project includes a `backend/render.yaml` blueprint file.
 
    | Key | Value |
    |-----|-------|
-   | `VITE_API_URL` | Your Render backend URL (e.g. `https://medibridge-api.onrender.com`) |
+   | `VITE_API_URL` | `https://nao-medical-assignment.onrender.com` |
 
    > ⚠️ **Important**: Vite env vars are baked in at build time. The `VITE_API_URL` must be set BEFORE deployment.
 
@@ -94,7 +94,7 @@ The project includes a `backend/render.yaml` blueprint file.
 
 ### After Deployment
 
-- Note your Vercel URL (e.g. `https://your-app.vercel.app`)
+- Note your Vercel URL: `https://nao-medical-assignment.vercel.app`
 - Go back to Render and update the `FRONTEND_URL` env var with this URL
 - Render will auto-redeploy with the updated CORS settings
 
@@ -106,8 +106,8 @@ The project includes a `backend/render.yaml` blueprint file.
 |------|--------|
 | ✅ | Backend `/health` returns `{"status": "healthy"}` |
 | ✅ | Frontend loads at Vercel URL |
-| ✅ | Set `FRONTEND_URL` on Render to your Vercel URL |
-| ✅ | Set `VITE_API_URL` on Vercel to your Render URL |
+| ✅ | Set `FRONTEND_URL` on Render to `https://nao-medical-assignment.vercel.app` |
+| ✅ | Set `VITE_API_URL` on Vercel to `https://nao-medical-assignment.onrender.com` |
 | ✅ | Create a conversation and send a test message |
 | ✅ | Test audio recording and transcription |
 | ✅ | Test the 🔊 Listen button for TTS |
@@ -160,9 +160,9 @@ services:
 | Variable | Where | Description |
 |----------|-------|-------------|
 | `GROQ_API_KEY` | Render (backend) | Groq Cloud API key for translation + STT |
-| `FRONTEND_URL` | Render (backend) | Vercel URL for CORS whitelist |
+| `FRONTEND_URL` | Render (backend) | `https://nao-medical-assignment.vercel.app` |
 | `PYTHON_VERSION` | Render (backend) | Python version (3.11.0) |
-| `VITE_API_URL` | Vercel (frontend) | Render backend URL for API calls |
+| `VITE_API_URL` | Vercel (frontend) | `https://nao-medical-assignment.onrender.com` |
 
 ---
 
@@ -172,4 +172,4 @@ services:
 2. **SQLite on Render**: Database resets on redeploy (Render's ephemeral filesystem). For persistent data, upgrade to Render's PostgreSQL add-on.
 3. **Audio files**: Stored on filesystem — reset on redeploy. Use S3 or Cloudinary for persistent audio in production.
 4. **WebSocket**: Works on Render but may timeout on free tier after idle periods.
-5. **CORS**: The backend whitelists `FRONTEND_URL`, `localhost:5173`, `localhost:3000`, and `*.vercel.app`.
+5. **CORS**: The backend whitelists `FRONTEND_URL` and `nao-medical-assignment.vercel.app`.

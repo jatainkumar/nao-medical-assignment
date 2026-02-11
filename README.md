@@ -1,4 +1,4 @@
-# MediBridge – Healthcare Doctor–Patient Translation
+# Healthcare Doctor–Patient Translation
 
 > **AI-powered real-time translation web application** that bridges language barriers between doctors and patients during medical consultations.
 
@@ -197,8 +197,8 @@ See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for full step-by-step deployment guide.
 
 ## 🌐 Deployed Links
 
-- **Frontend (Vercel)**: _[Add deployed URL]_
-- **Backend (Render)**: _[Add deployed URL]_
+- **Frontend (Vercel)**: [https://nao-medical-assignment.vercel.app](https://nao-medical-assignment.vercel.app)
+- **Backend (Render)**: [https://nao-medical-assignment.onrender.com](https://nao-medical-assignment.onrender.com)
 
 ---
 
