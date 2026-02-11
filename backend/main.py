@@ -19,15 +19,23 @@ app = FastAPI(
 
 # CORS configuration
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+
+# Define all allowed origins explicitly
+origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://nao-medical-assignment.vercel.app",
+    "https://nao-medical-assignment.vercel.app/",
+    "https://www.nao-medical-assignment.vercel.app",
+]
+
+# Add the env var if it's not already in the list
+if FRONTEND_URL and FRONTEND_URL not in origins:
+    origins.append(FRONTEND_URL)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        FRONTEND_URL,
-        "http://localhost:5173",
-        "http://localhost:3000",
-        "https://nao-medical-assignment.vercel.app",
-        "https://nao-medical-assignment-*.vercel.app",
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
