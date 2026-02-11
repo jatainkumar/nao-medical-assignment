@@ -1561,10 +1561,22 @@ body {
   /* Show hamburger on mobile */
   .mobile-menu-btn {
     display: flex;
+    z-index: 21;
+    /* Ensure above header content */
+  }
+
+  .chat-layout {
+    height: 100dvh;
+    /* Use dynamic viewport height for mobile browsers */
   }
 
   .chat-main {
     border: none;
+    width: 100%;
+    height: 100dvh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
   .chat-header__actions .header-btn span {
@@ -1577,10 +1589,25 @@ body {
 
   .chat-messages {
     padding: 16px 12px;
+    padding-top: 70px;
+    /* Ensure content doesn't start under header if header is fixed */
+    flex: 1;
   }
 
   .chat-header {
     padding: 10px 12px;
+    position: absolute;
+    /* Fix header to top on mobile */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: var(--bg-secondary);
+    /* Ensure opaque background */
+    box-shadow: var(--shadow-sm);
+    /* visual separation */
+    height: 60px;
+    /* Explicit height */
   }
 
   .chat-input {
