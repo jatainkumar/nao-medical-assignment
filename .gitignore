@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+backend/.env
+frontend/.env
+
+# Database
+backend/data/
+*.db
+
+# Audio uploads
+backend/uploads/
+
+# Build output
+frontend/dist/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+*.egg-info/
+dist/
+build/
+*.pyo
+
+# Gemini / AI agent
+.gemini/
+.agent/
